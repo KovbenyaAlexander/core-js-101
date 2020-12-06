@@ -312,8 +312,13 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  let arr = String(num).split('');
+  while (arr.length !== 1) {
+    const sum = arr.reduce((acc, item) => acc + Number(item), 0);
+    arr = String(sum).split('');
+  }
+  return arr[0];
 }
 
 
@@ -363,8 +368,9 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  const res = num.toString(n);
+  return res;
 }
 
 
